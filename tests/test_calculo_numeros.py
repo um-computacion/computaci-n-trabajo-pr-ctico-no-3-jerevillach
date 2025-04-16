@@ -13,8 +13,23 @@ class TestCalculoNumeros(unittest.TestCase):
     )
     def test_ingreso_feliz(self, patch_input):
         numero = ingrese_numero()
-        self.assertEqual(numero, 88)
+        self.assertEqual(numero, 88) 
+    @patch(  # este patch controla lo que hace el input
+        'builtins.input',
+        return_value='-88'
+    )
+    def test_ingreso_negativo(self, patch_input):
+        with self.assertRaises(NumeroDebeSerPositivo):
+            ingrese_numero()
 
-   
+    @patch(  # este patch controla lo que hace el input
+        'builtins.input',
+        return_value='AAA'
+    )
+    def test_ingreso_letras(self, patch_input):
+        with self.assertRaises(ValueError):
+            ingrese_numero()
+       
+
 if __name__ == '__main__':
     unittest.main() 
