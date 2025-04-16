@@ -24,7 +24,7 @@ class TestCalculoNumeros(unittest.TestCase):
 
     @patch(  # este patch controla lo que hace el input
         'builtins.input',
-        return_value='AAA'
+        return_value='CCC'
     )
     def test_ingreso_letras(self, patch_input):
         with self.assertRaises(ValueError):
