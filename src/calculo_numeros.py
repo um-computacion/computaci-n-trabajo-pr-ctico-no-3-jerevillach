@@ -8,7 +8,7 @@ def ingrese_numero():
     """
     Solicita al usuario ingresar un número y valida que sea positivo.
     
-    Returns:
+    returns:
         int: El número ingresado si es válido.
         
     Raises:
